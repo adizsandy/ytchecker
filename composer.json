@@ -1,0 +1,27 @@
+{
+    "name": "adizsandy/ytchecker",
+    "license": "MIT",
+    "type": "project",
+    "description": "Symfony Demo Application",
+    "minimum-stability": "stable",
+    "prefer-stable": true, 
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo_sqlite": "*",
+        "php-di/php-di": "6.*"
+    },
+    "require-dev": { 
+        "phpstan/phpstan": "^1.2" 
+    }, 
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Engine\\": "core/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    } 
+}
