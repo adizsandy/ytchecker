@@ -9,7 +9,7 @@ try {
         if ($request->get('reportKey') && $request->get('newId', 'string')) {
             $key = $request->get('reportKey');
             if ($key !== $_SESSION['_report_key_1']) {
-                throw Exception("CSRF token error");
+                throw new Exception("CSRF token error");
             }
 
             $data = file_get_contents(__DIR__ . '/../../storage/data.json', true);
@@ -20,11 +20,11 @@ try {
 
                 return ['data' => null, 'message' => 'Success'];
             } else {
-                throw Exception("id already exists");
+                throw new Exception("id already exists");
             }
         }
     }
-    throw Exception("Invalid request");
+    throw new Exception("Invalid request");
 } catch(Exception $e) {
     return ['data' => null, 'message' => $e->getMessage()];
 }
