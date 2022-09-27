@@ -7,18 +7,22 @@ if (session_status() === PHP_SESSION_NONE) {
 require __DIR__ . '/../../src/Request/Request.php';
 
 $request = new \App\Request();
-print_r($_POST);
-try {
-    if ($request->isPost()) {
-        if ($request->get('reportKey')) {
-            $key = $request->get('reportKey');
-            // if ($key !== $_SESSION['_report_key_1']) {
-            //     throw new Exception("CSRF token error");
-            // }
 
-            $data = file_get_contents(__DIR__ . '/../../storage/data.json', true);
-            return ['data' => $data, 'message' => 'Success'];
-        }
+try {
+    // if ($request->isPost()) {
+    //     if ($request->get('reportKey')) {
+    //         $key = $request->get('reportKey');
+    //         // if ($key !== $_SESSION['_report_key_1']) {
+    //         //     throw new Exception("CSRF token error");
+    //         // }
+
+    //         $data = file_get_contents(__DIR__ . '/../../storage/data.json', true);
+    //         return ['data' => $data, 'message' => 'Success'];
+    //     }
+    // }
+    if (isset($_POST['reportKey'])) {
+        $data = file_get_contents(__DIR__ . '/../../storage/data.json', true);
+        return ['data' => $data, 'message' => 'Success'];
     }
     throw new Exception("Invalid request");
 } catch(Exception $e) {
