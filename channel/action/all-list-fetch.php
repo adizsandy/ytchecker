@@ -9,7 +9,7 @@ require __DIR__ . '/../../src/Request/Request.php';
 $request = new \App\Request();
 
 try {
-    if ($request->isAjax()) {
+    if ($request->isPost()) {
         if ($request->get('reportKey')) {
             $key = $request->get('reportKey');
             // if ($key !== $_SESSION['_report_key_1']) {
@@ -24,3 +24,4 @@ try {
 } catch(Exception $e) {
     return ['data' => null, 'message' => $e->getMessage()];
 }
+return ['data' => null, 'message' => $e->getMessage()];
