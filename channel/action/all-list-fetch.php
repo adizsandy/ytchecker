@@ -24,5 +24,3 @@ try {
 } catch(Exception $e) {
     return ['data' => null, 'message' => $e->getMessage()];
 }
-
-exit;
