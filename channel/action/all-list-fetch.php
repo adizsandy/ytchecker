@@ -12,9 +12,9 @@ try {
     if ($request->isAjax()) {
         if ($request->get('reportKey')) {
             $key = $request->get('reportKey');
-            if ($key !== $_SESSION['_report_key_1']) {
-                throw new Exception("CSRF token error");
-            }
+            // if ($key !== $_SESSION['_report_key_1']) {
+            //     throw new Exception("CSRF token error");
+            // }
 
             $data = file_get_contents(__DIR__ . '/../../storage/data.json', true);
             return ['data' => $data, 'message' => 'Success'];
