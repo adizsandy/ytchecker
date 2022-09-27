@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../../src/Request/Request.php';
 
-$request = new Request();
+$request = new \App\Request();
 
 try {
     if ($request->isAjax()) {
