@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 require __DIR__ . '/../../src/Request/Request.php';
 
 $request = new \App\Request();
-
+print_r($_POST);
 try {
     if ($request->isPost()) {
         if ($request->get('reportKey')) {
@@ -24,4 +24,3 @@ try {
 } catch(Exception $e) {
     return ['data' => null, 'message' => $e->getMessage()];
 }
-return ['data' => null, 'message' => $e->getMessage()];
