@@ -121,29 +121,6 @@ class Request
      * */
     public function isAjax()
     {
-        return (
-            !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-            strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'
-        )
-            ? true
-            : false;
-    }
-
-    /**
-     * Check if form includes files
-     * @param string $name file input name
-     * @return boolean
-     * */
-    public function hasFiles(string $name = null)
-    {
-        return $name !== null
-            ? (
-                isset($_FILES[$name]) && $_FILES[$name]
-                ? true
-                : false
-            )
-            : isset($_FILES) && $_FILES
-                ? true
-                : false;
+        return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') ? true : false;
     }
 }
