@@ -1,5 +1,5 @@
 <body>
-    <input type="hidden" name="__report" value="<?php echo $_SESSION['_report_key_1'] ?>">
+    <input type="hidden" id="reportKey" name="__report" value="<?php echo $_SESSION['_report_key_1'] ?>">
     <section class="vh-100" style="background-color: #eee;">
 		<div class="container header">
 			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -14,7 +14,7 @@
 				</ul>
 
 				<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-					<input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search or Submit..." aria-label="Search or Submit">
+					<input type="search" class="hot-imput form-control form-control-dark text-bg-dark" placeholder="Search or Submit..." aria-label="Search or Submit">
 				</form>
 
 				<div class="text-end">

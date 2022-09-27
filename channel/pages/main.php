@@ -20,7 +20,7 @@ require __DIR__ . '/templates/header.php';
             </div>
         </div> 
     </div>
-
+    <script src="https://ytchecker.herokuapp.com/public/assets/js/all-list.js"></script>   
 <?php
 
 require __DIR__ . '/templates/footer.php';
