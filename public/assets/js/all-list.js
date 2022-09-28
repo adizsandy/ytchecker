@@ -3,7 +3,8 @@ $(document).ready(function(){
  });
 
 function init() { 
-    if (localStorage.getItem('updated')) { 
+    let updated = Boolean(JSON.parse(localStorage.getItem('updated')));
+    if (updated) { 
         generate();
     } else { 
         var reportKey = $("#reportKey").val();
