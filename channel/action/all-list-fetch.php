@@ -12,7 +12,7 @@ try {
     }
 
     $data = file_get_contents(__DIR__ . '/../../storage/data.json', true);
-    $result = ['data' => $data, 'status' => true, 'message' => 'Success'];
+    $result = ['data' => json_decode($data), 'status' => true, 'message' => 'Success'];
 
 } catch(Exception $e) {
     $result = ['data' => null, 'status' => false, 'message' => $e->getMessage()];
