@@ -10,7 +10,7 @@ try {
     $new_id = (string)$_POST['newId'];
     if (!in_array($new_id, $data, true)) {
         $data[] = $new_id;
-        file_put_contents(__DIR__ . '/../../storage/data.json', $data);
+        file_put_contents(__DIR__ . '/../../storage/data.json', $data); echo count($data);
 
         $result = ['data' => null, 'status' => true, 'message' => 'Success'];
     } else {

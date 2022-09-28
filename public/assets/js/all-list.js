@@ -34,7 +34,7 @@ function init() {
                 localStorage.setItem('updated', 0);	
                 setTimeout(
                     function(){
-                        location.reload();
+                        //location.reload();
                     },
                     2000
                 )
