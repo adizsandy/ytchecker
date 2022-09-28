@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$result = return ['data' => null, 'message' => 'Something is wrong'];
+$result = ['data' => null, 'message' => 'Something is wrong'];
 
 try {
     if (isset($_POST['reportKey'])) {
