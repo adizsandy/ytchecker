@@ -10,8 +10,8 @@ require __DIR__ . '/templates/header.php';
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5"> 
                         <div class="row justify-content-center">
-                            <div class="row d-flex">
-                                <div class="vid-wrap-1"></div>
+                            <div class="col-12">
+                                <div class="vid-wrap-1 row d-flex"></div>
                                 <div class="vid-wrap-2"></div>
                             </div> 
                         </div> 
