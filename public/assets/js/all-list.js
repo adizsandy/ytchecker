@@ -3,8 +3,8 @@ $(document).ready(function(){
  });
 
 function init() { 
-    let updated = Boolean(JSON.parse(localStorage.getItem('updated')));
-    if (updated) { 
+    let updated = JSON.parse(localStorage.getItem('updated'));console.log(updated)
+    if (Number(updated) == 1) { 
         generate();
     } else { 
         var reportKey = $("#reportKey").val();
@@ -31,8 +31,13 @@ function init() {
             type: "POST",
             data: {reportKey: reportKey, newId: newId},
             success: function(res) { 
-                localStorage.setItem('updated', false);	
-                location.reload();
+                localStorage.setItem('updated', 0);	
+                setTimeout(
+                    function(){
+                        location.reload();
+                    },
+                    2000
+                )
             },
             error: function(err, x) { 
                 console.log("Something went wrong");
