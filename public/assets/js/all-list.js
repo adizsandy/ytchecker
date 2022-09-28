@@ -3,26 +3,26 @@ $(document).ready(function(){
  });
 
 function init() { 
-    let updated = JSON.parse(localStorage.getItem('updated'));console.log(updated)
-    if (Number(updated) == 1) { 
-        generate();
-    } else { 
-        var reportKey = $("#reportKey").val();
-        $.ajax({
-            url: ROOT + '/channel/action/all-list-fetch.php',
-            type: "POST",
-            data: {reportKey: reportKey},
-            success: function(res) {
-                res = JSON.parse(res);
-                localStorage.setItem('allListIds', JSON.stringify(res.data)); 
-                generate();
-            },
-            error: function(err, x) {
-                generate();
-                console.log("Something went wrong");
-            }
-        })
-    }
+    // let updated = JSON.parse(localStorage.getItem('updated'));console.log(updated)
+    // if (Number(updated) == 1) { 
+    //     generate();
+    // } else { 
+       
+    // }
+    var reportKey = $("#reportKey").val();
+    $.ajax({
+        url: ROOT + '/channel/action/all-list-fetch.php',
+        type: "POST",
+        data: {reportKey: reportKey},
+        success: function(res) {
+            res = JSON.parse(res);
+            //localStorage.setItem('allListIds', JSON.stringify(res.data)); 
+            generate(res.data);
+        },
+        error: function(err, x) {
+            console.log("Something went wrong");
+        }
+    });
 
     $(".v-grid-submit").on('click', function(){ 
         var newId = $(".hot-input").val(); 
@@ -31,10 +31,11 @@ function init() {
             type: "POST",
             data: {reportKey: reportKey, newId: newId},
             success: function(res) { 
-                localStorage.setItem('updated', 0);	
+                //localStorage.setItem('updated', 0);	
+                console.log('Success');
                 setTimeout(
                     function(){
-                        //location.reload();
+                        location.reload();
                     },
                     2000
                 )
@@ -46,8 +47,8 @@ function init() {
     });
 }
 
-function generate() {
-    var videoIds = localStorage.getItem('allListIds');
+function generate(videoIds) {
+    //var videoIds = localStorage.getItem('allListIds');
     var vidArr = JSON.parse(videoIds);
     for (let i=0; i<vidArr.length; i++) { 
         setTimeout(function(){
