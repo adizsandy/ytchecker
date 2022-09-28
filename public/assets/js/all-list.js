@@ -47,9 +47,9 @@ function init() {
     });
 }
 
-function generate(videoIds) {
+function generate(vidArr) {
     //var videoIds = localStorage.getItem('allListIds');
-    var vidArr = JSON.parse(videoIds);
+    //var vidArr = JSON.parse(videoIds);
     for (let i=0; i<vidArr.length; i++) { 
         setTimeout(function(){
             let videoId = vidArr[i];
