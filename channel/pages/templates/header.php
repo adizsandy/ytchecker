@@ -1,7 +1,7 @@
 <body>
     <input type="hidden" id="reportKey" name="__report" value="<?php echo $_SESSION['_report_key_1'] ?>">
     <section class="vh-100" style="background-color: #eee;">
-		<div class="container header">
+		<div class="container header" style="background: black; padding: 2px">
 			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 				<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
 					<i class="fw-bold">[>]</i> VidGrids

@@ -12,6 +12,7 @@ function init() {
             type: "POST",
             data: {reportKey: reportKey},
             success: function(res) {
+                res = JSON.parse(res);
                 localStorage.setItem('allListIds', JSON.stringify(res.data)); 
                 generate();
             },
