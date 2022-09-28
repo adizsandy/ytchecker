@@ -48,10 +48,14 @@ function generate() {
             let videoId = vidArr[i];
             let url = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=AIzaSyBB7n48Te5VrEVBp0qUrEKV0zoC1ixI7z0`;
             $.get(url, function(data) {
-                let views = data.items[0].statistics.viewCount; 
-                var item = `<div class="col-md-3"><b>${"| Views: " + views}</b><iframe id="${videoId}" src="https://www.youtube.com/embed/${videoId}?rel=0" title="YouTube video player"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
-                $(".vid-wrap-1").append(item);
+                if (data.items) {
+                    let views = data.items[0].statistics.viewCount; 
+                    var item = `<div class="col-md-3"><b>${"| Views: " + views}</b><iframe id="${videoId}" src="https://www.youtube.com/embed/${videoId}?rel=0" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+                    $(".vid-wrap-1").append(item);
+                } else {
+                    console.log("Invalid video id found")
+                }
             }); 
         }, 2000);
     }
